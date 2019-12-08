@@ -1,0 +1,19 @@
+use jsfcrud;
+
+show tables;
+
+create table users(
+   id INT NOT NULL auto_increment PRIMARY KEY,
+   first_name VARCHAR(50) NOT NULL,
+   last_name VARCHAR(50) NOT NULL,
+   username VARCHAR(50) NOT NULL,
+   password VARCHAR(100) NOT NULL
+);
+
+select * from users;
+
+insert into users (first_name, last_name, username, password) values ('Thang', 'Nguyen', 'test@gmail.com', '123');
+insert into users (first_name, last_name, username, password) values ('Hung', 'Chay', 'test1@gmail.com', '123');
+insert into users (first_name, last_name, username, password) values ('Nam', 'Quang', 'tes2t@gmail.com', '123');
+
+drop table users;

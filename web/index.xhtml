@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <center><h2><h:outputText value="Student Records"/></h2></center>
+        <h:form>
+            <h:dataTable value="#{userController.getAll()}" var="user" border="0" cellpadding="2" cellspacing="0" rules="all" style="border:solid 1px">
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="id"/>
+                    </f:facet>
+                    <h:outputText value="#{user.id}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="first_name"/>
+                    </f:facet>
+                    <h:outputText value="#{user.firstName}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="last_name"/>
+                    </f:facet>
+                    <h:outputText value="#{user.lastName}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="username"/>
+                    </f:facet>
+                    <h:outputText value="#{user.username}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="password"/>
+                    </f:facet>
+                    <h:outputText value="#{user.password}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Update</f:facet>
+                    <h:commandButton action="#{userController.updatePage(user.id)}" value="Update" class="btn btn-danger" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Delete</f:facet>
+                    <h:commandButton action="#{userController.deleteUser(user.id)}" value="Delete" class="btn btn-danger" />
+                </h:column>
+            </h:dataTable>
+            <br/>
+
+            <h:commandButton action="#{userController.createPage()}" value="Create New User"/>
+        </h:form>
+    </h:body>
+</html>
+
